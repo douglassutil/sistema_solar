@@ -30,7 +30,7 @@ class SinglePage extends StatelessWidget {
           planetService.planetsOrdereByDistanceOfPlanet(planet).map((orderedPlanet){
             return PlanetListTile(
               planet:orderedPlanet
-              subtitle: Text("${planetService.distanceFromPlanets(planet, orderedPlanet)} AU do ${planet.name}"),
+              subtitle: Text("${planetService.distanceFromPlanets(planet, orderedPlanet).toStringAsPrecision(2)} AU do ${planet.name}"),
             );
           })
         ),
