@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:sistema_solar/models/planet.dart';
+import 'package:sistema_solar/widgets/app_circle_avatar.dart';
 
 class PlanetListTile extends StatelessWidget {
   final Planet planet;

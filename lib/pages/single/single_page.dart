@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+
+import 'package:sistema_solar/models/planet.dart';
 import 'package:sistema_solar/services/planet_service.dart';
 import 'package:sistema_solar/widgets/planet_list_tile.dart';
 
 class SinglePage extends StatelessWidget {
   
-  final Widget planet;
+  final Planet planet;
   final PlanetService planetService = PlanetService();
   
   SinglePage({Key key, this.planet}) : super(key: key);
@@ -13,6 +15,7 @@ class SinglePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(planet.name),
       ),
       body: ListView(
@@ -29,8 +32,8 @@ class SinglePage extends StatelessWidget {
         ]..addAll(
           planetService.planetsOrdereByDistanceOfPlanet(planet).map((orderedPlanet){
             return PlanetListTile(
-              planet:orderedPlanet
-              subtitle: Text("${planetService.distanceFromPlanets(planet, orderedPlanet).toStringAsPrecision(2)} AU do ${planet.name}"),
+              planet:orderedPlanet,
+              subtitle: Text("${planetService.distanceFromPlanets(planet, orderedPlanet).toStringAsPrecision(2)} AU de ${planet.name}"),
             );
           })
         ),

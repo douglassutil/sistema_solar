@@ -7,7 +7,7 @@ class PlanetService {
   List<Planet> get planets => _solarSystem;
 
   List<Planet> planetsOrdereByDistanceOfPlanet(Planet planet){
-    return planet.where((listPlanet) => listPlanet != planet).toList()
+    return planets.where((listPlanet) => listPlanet != planet).toList()
       ..sort((planetA, planetB) {
         final distanceToA = distanceFromPlanets(planet, planetA);
         final distanceToB = distanceFromPlanets(planet, planetB);
